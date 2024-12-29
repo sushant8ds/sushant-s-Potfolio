@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti-Fraud Browser Extension</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: Consolas, monospace;
+            overflow-x: auto;
+        }
+        .alert {
+            padding: 10px;
+            margin: 10px 0;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .alert-phishing {
+            background-color: #f44336;
+        }
+        .alert-malicious {
+            background-color: #ff9800;
+        }
+        .alert-keyword {
+            background-color: #4caf50;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Anti-Fraud Browser Extension</h1>
+
+    <div class="section">
+        <h2>Problem Statement</h2>
+        <p>An anti-fraud browser extension must detect and prevent fraudulent activities such as phishing, malicious scripts, and fake websites in real-time.</p>
+    </div>
+
+    <div class="section">
+        <h2>Challenges</h2>
+        <ul>
+            <li>Detecting phishing websites quickly.</li>
+            <li>Identifying and blocking malicious scripts.</li>
+            <li>Maintaining an efficient lookup mechanism for blacklisted URLs.</li>
+            <li>Providing real-time alerts without compromising browser performance.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Solutions Using Algorithms and Data Structures</h2>
+        <h3>Phishing Website Detection:</h3>
+        <ul>
+            <li>Trie for URL lookup to quickly verify if a website is blacklisted.</li>
+            <li>Rabin-Karp Algorithm for string matching (e.g., detecting phishing keywords in page content).</li>
+        </ul>
+
+        <h3>Malicious Script Detection:</h3>
+        <ul>
+            <li>Hashing to identify known malicious script patterns.</li>
+            <li>Brute Force String Search to find suspicious code in real-time.</li>
+        </ul>
+
+        <h3>Efficient URL Lookup:</h3>
+        <ul>
+            <li>Binary Search Tree (BST) or AVL Tree for storing and querying blacklisted URLs.</li>
+            <li>Skip List for dynamic additions/removals in URL lists.</li>
+        </ul>
+
+        <h3>Real-Time Alerts and Blocking:</h3>
+        <ul>
+            <li>Use Queues to process alerts asynchronously.</li>
+            <li>Fenwick Tree or Segment Tree for tracking metrics like suspicious activity frequency.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Step-by-Step Implementation</h2>
+        <ol>
+            <li>Initialize Data Structures:
+                <ul>
+                    <li>Create a Trie for blacklisted URLs.</li>
+                    <li>Implement a hash table for malicious script patterns.</li>
+                </ul>
+            </li>
+            <li>Blacklist Verification:
+                <ul>
+                    <li>Use the Rabin-Karp Algorithm to match the domain name against known phishing keywords.</li>
+                </ul>
+            </li>
+            <li>Malicious Script Detection:
+                <ul>
+                    <li>Search for suspicious script snippets using Brute Force Search or Hashing.</li>
+                </ul>
+            </li>
+            <li>Alert System:
+                <ul>
+                    <li>Use a queue to process and display real-time alerts to the user.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>C++ Code</h2>
+        <pre>
+#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
+#include &lt;unordered_set&gt;
+#include &lt;queue&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+// Trie Node structure for storing blacklisted URLs
+class TrieNode {
+public:
+    unordered_map&lt;char, TrieNode*&gt; children;
+    bool isEndOfURL;
+    TrieNode() {
+        isEndOfURL = false;
+    }
+};
+
+class Trie {
+private:
+    TrieNode* root;
+
+public:
+    Trie() {
+        root = new TrieNode();
+    }
+
+    // Insert URL into Trie
+    void insert(string url) {
+        TrieNode* currentNode = root;
+        for (char ch : url) {
+            if (currentNode-&gt;children.find(ch) == currentNode-&gt;children.end()) {
+                currentNode-&gt;children[ch] = new TrieNode();
+            }
+            currentNode = currentNode-&gt;children[ch];
+        }
+        currentNode-&gt;isEndOfURL = true;
+    }
+
+    // Search URL in Trie
+    bool search(string url) {
+        TrieNode* currentNode = root;
+        for (char ch : url) {
+            if (currentNode-&gt;children.find(ch) == currentNode-&gt;children.end()) {
+                return false;
+            }
+            currentNode = currentNode-&gt;children[ch];
+        }
+        return currentNode-&gt;isEndOfURL;
+    }
+};
+
+// Rabin-Karp algorithm for string matching (detecting phishing keywords)
+int rabinKarpSearch(string text, string pattern) {
+    int n = text.length();
+    int m = pattern.length();
+    int d = 256; // Number of characters in the input alphabet
+    int q = 101; // A prime number for hashing
+    int p = 0; // Hash value for pattern
+    int t = 0; // Hash value for text
+    int h = 1;
+
+    // Precompute the value of h = d^(m-1) % q
+    for (int i = 0; i &lt; m - 1; i++) {
+        h = (h * d) % q;
+    }
+
+    // Compute the hash value of the pattern and the first window of the text
+    for (int i = 0; i &lt; m; i++) {
+        p = (d * p + pattern[i]) % q;
+        t = (d * t + text[i]) % q;
+    }
+
+    // Slide the pattern over the text one by one
+    for (int i = 0; i &lt;= n - m; i++) {
+        if (p == t) {
+            int j;
+            // Check if the pattern matches the text
+            for (j = 0; j &lt; m; j++) {
+                if (text[i + j] != pattern[j]) {
+                    break;
+                }
+            }
+            if (j == m) {
+                return i; // Pattern found at index i
+            }
+        }
+
+        // Compute hash value for the next window of the text
+        if (i &lt; n - m) {
+            t = (d * (t - text[i] * h) + text[i + m]) % q;
+            if (t &lt; 0) {
+                t = t + q;
+            }
+        }
+    }
+    return -1; // Pattern not found
+}
+
+// Class to detect malicious scripts using hashing
+class MaliciousScriptDetector {
+private:
+    unordered_set&lt;string&gt; maliciousScripts;
+
+public:
+    void addMaliciousScript(string script) {
+        maliciousScripts.insert(script);
+    }
+
+    bool isMalicious(string script) {
+        return maliciousScripts.find(script) != maliciousScripts.end();
+    }
+};
+
+// Alert system to process real-time alerts using a queue
+class AlertSystem {
+private:
+    queue&lt;string&gt; alertQueue;
+
+public:
+    void addAlert(string alert) {
+        alertQueue.push(alert);
+    }
+
+    void processAlerts() {
+        while (!alertQueue.empty()) {
+            cout &lt;&lt; "ALERT: " &lt;&lt; alertQueue.front() &lt;&lt; endl;
+            alertQueue.pop();
+        }
+    }
+};
+
+// Main function that ties everything together
+int main() {
+    // Initialize data structures
+    Trie urlTrie;
+    MaliciousScriptDetector scriptDetector;
+    AlertSystem alertSystem;
+
+    // Insert some blacklisted URLs into the Trie
+    urlTrie.insert("phishingsite.com");
+    urlTrie.insert("fakebank.com");
+
+    // Add some known malicious script patterns
+    scriptDetector.addMaliciousScript("&lt;script&gt;alert('Hacked');&lt;/script&gt;");
+    scriptDetector.addMaliciousScript("&lt;script&gt;evilFunction();&lt;/script&gt;");
+
+    // Simulate website visit with URL and page content
+    string url = "phishingsite.com";
+    string pageContent = "&lt;script&gt;alert('Hacked');&lt;/script&gt;";
+
+    // Check for blacklisted URL
+    if (urlTrie.search(url)) {
+        alertSystem.addAlert("Phishing URL detected: " + url);
+    }
+
+    // Check for malicious script
+    if (scriptDetector.isMalicious(pageContent)) {
+        alertSystem.addAlert("Malicious script detected!");
+    }
+
+    // Search for phishing keywords in the page content using Rabin-Karp
+    string pattern = "fake";
+    if (rabinKarpSearch(pageContent, pattern) != -1) {
+        alertSystem.addAlert("Phishing keyword detected: " + pattern);
+    }
+
+    // Process and display alerts
+    alertSystem.processAlerts();
+
+    return 0;
+}
+        </pre>
+    </div>
+
+    <div class="section">
+        <h2>Simulate Fraud Detection</h2>
+        <label for="url">Enter URL:</label>
+        <input type="text" id="url" placeholder="Enter website URL...">
+
+        <label for="pageContent">Enter Page Content:</label>
+        <input type="text" id="pageContent" placeholder="Enter page content...">
+
+        <button onclick="detectFraud()">Check for Fraud</button>
+
+        <div id="alerts"></div>
+    </div>
+</div>
+
+<script>
+    // Simulate blacklisted URLs
+    const blacklistedURLs = ["phishingsite.com", "fakebank.com"];
+
+    // Simulate malicious scripts
+    const maliciousScripts = [
+        "<script>alert('Hacked');</script>",
+        "<script>evilFunction();</script>"
+    ];
+
+    // Phishing keywords pattern (for simplicity, just a small set of patterns)
+    const phishingKeywords = ["fake", "phishing", "scam"];
+
+    function detectFraud() {
+        const url = document.getElementById('url').value;
+        const pageContent = document.getElementById('pageContent').value;
+        const alertsDiv = document.getElementById('alerts');
+        alertsDiv.innerHTML = ''; // Clear previous alerts
+
+        let alertMessages = [];
+
+        // Check for blacklisted URL
+        if (blacklistedURLs.includes(url)) {
+            alertMessages.push(`<div class="alert alert-phishing">Phishing URL detected: ${url}</div>`);
+        }
+
+        // Check for malicious script
+        for (const script of maliciousScripts) {
+            if (pageContent.includes(script)) {
+                alertMessages.push('<div class="alert alert-malicious">Malicious script detected!</div>');
+                break;
+            }
+        }
+
+        // Check for phishing keywords using a simple pattern match
+        for (const keyword of phishingKeywords) {
+            if (pageContent.toLowerCase().includes(keyword)) {
+                alertMessages.push(`<div class="alert alert-keyword">Phishing keyword detected: ${keyword}</div>`);
+                break;
+            }
+        }
+
+        // If no fraud detected, show a message
+        if (alertMessages.length === 0) {
+            alertMessages.push('<div class="alert alert-keyword">No threats detected!</div>');
+        }
+
+        // Display all alerts
+        alertsDiv.innerHTML = alertMessages.join('');
+    }
+</script>
+
+</body>
+</html>

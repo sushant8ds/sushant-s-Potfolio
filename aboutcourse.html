@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+    <link rel="stylesheet" href="st.css">
+    <style>
+        /* General styling for fonts and layout */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2, h3 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        h2 span {
+            color: #007BFF;
+        }
+
+        p, ul {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            padding: 0 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .image1 {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-containerrr {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .cardddd {
+            background-color: #fff;
+            width: 250px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cardddd:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cardddd img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cardddd h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .line {
+            width: 60px;
+            height: 4px;
+            background-color: #007BFF;
+            margin: 10px auto;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        .fade-in-delay {
+            animation: fadeIn 2s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        .hover-effect:hover {
+            transform: translateX(10px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Add fade-in effect for the card containers */
+        .card-containerrr {
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <section class="fade-in">
+        <h2 class="heading"><span>About</span> Course</h2>
+        <div class="row fade-up">
+            <div class="image1">
+                <iframe src="https://lottie.host/embed/e4c07bc8-852b-4240-a93a-3d93d5e9fb28/L2TNQ885FB.lottie"></iframe>
+            </div>
+            <div class="content">
+                <h3>What is the course about?</h3>
+                <div class="line"></div>
+                <p>The "Design and Analysis of Algorithms" course focuses on understanding, designing, and evaluating algorithms to solve computational problems efficiently. It covers topics such as recursion, graph algorithms, sorting and searching, and advanced data structures like trees and heaps. Students learn to analyze algorithm efficiency in terms of time and space complexity and apply these techniques to real-world problem scenarios, building a strong foundation for advanced computing challenges.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="fade-in">
+        <div class="row fade-up">
+            <div class="content">
+                <h3>What kind of data structures and algorithms have you studied?</h3>
+                <div class="line"></div>
+                <h3>Data Structures</h3>
+                <ul>
+                    <li>Arrays</li>
+                    <li>Stacks</li>
+                    <li>Queues</li>
+                    <li>Linked Lists</li>
+                    <li>Trees</li>
+                    <li>Skip List</li>
+                    <li>Union Find</li>
+                    <li>Structures</li>
+                    <li>Tables</li>
+                    <li>Hashing</li>
+                    <li>DFS</li>
+                    <li>BFS</li>
+                    <li>Sorting</li>
+                    <li>Rabin-Karp</li>
+                    <li>Brute Force String Search</li>
+                    <li>Graphs</li>
+                    <li>Heaps</li>
+                    <li>Advanced structures like Tries, Fenwick Trees, Segment Trees, and Skip Lists</li>
+                </ul>
+
+                <h3>Algorithms</h3>
+                <ul>
+                    <li><strong>Sorting and Searching:</strong> Organizing data (Bubble Sort, Quick Sort, Merge Sort) and finding items (Binary Search, KMP Algorithm).</li>
+                    <li><strong>Graph Algorithms:</strong> Shortest path algorithms (Dijkstra’s, Bellman-Ford) and Minimum Spanning Trees (Prim’s, Kruskal’s).</li>
+                    <li><strong>Pathfinding:</strong> Algorithms to determine routes (Floyd-Warshall).</li>
+                    <li><strong>Optimization Problems:</strong> Knapsack, Travelling Salesperson Problem, and Huffman Coding.</li>
+                    <li><strong>Recursion and Backtracking:</strong> Problem-solving using function calls (N-Queens Problem).</li>
+                    <li><strong>String Matching:</strong> Algorithms like Rabin-Karp, Boyer-Moore, and Brute Force for searching patterns in text.</li>
+                    <li><strong>Divide and Conquer:</strong> Techniques like Merge Sort and Strassen’s Matrix Multiplication.</li>
+                    <li><strong>Dynamic Programming:</strong> Solving problems by breaking them into overlapping subproblems (Fibonacci, Longest Common Subsequence).</li>
+                    <li><strong>Undecidability:</strong> Understanding problems that can't be solved algorithmically (Halting Problem).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="fade-in">
+        <div class="row fade-up">
+            <div class="image1">
+                <iframe src="https://lottie.host/embed/726b40bc-6c61-46ee-be6e-bd370c519b5d/80S7dKyezR.lottie"></iframe>
+            </div>
+            <div class="content">
+                <h3>How do you connect the course with real-time applications?</h3>
+                <div class="line"></div>
+                <ul>
+                    <li><strong>Graph Algorithms:</strong> Use Dijkstra's or Kruskal's algorithms for route optimization in transportation networks or telecommunication systems.</li>
+                    <li><strong>Sorting and Searching:</strong> Implement efficient algorithms in e-commerce platforms for inventory management and quick product searches.</li>
+                    <li><strong>Data Structures:</strong> Apply heaps, trees, and hash tables in database indexing and real-time data retrieval systems like caching.</li>
+                    <li><strong>Optimization Problems:</strong> Solve real-world scenarios like the Knapsack problem for resource allocation in project management.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="fade-in">
+        <h2 class="heading">Reference <span>Books</span></h2>
+        <div class="card-containerrr">
+            <div class="cardddd hover-effect">
+                <img src="assets/book (1).jpg" class="client-logo" style="width: 300px; height: auto;">
+                <h2>Introduction to Algorithms</h2>
+                <p>Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein (Third Edition)</p>
+            </div>
+            <div class="cardddd hover-effect">
+                <img src="assets/book (2).jpg" class="client-logo" style="width: 300px; height: auto;">
+                <h2>Introduction to Algorithms</h2>
+                <p>Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein (Fourth Edition)</p>
+            </div>
+            <div class="cardddd hover-effect">
+                <img src="assets/book (3).jpg" class="client-logo" style="width: 300px; height: auto;">
+                <h2>Introduction to the Design and Analysis of Algorithm</h2>
+                <p>Anany Levitin (Second Edition)</p>
+            </div>
+        </div>
+    </section>
+    
+    </section>
+</body>
+</html>

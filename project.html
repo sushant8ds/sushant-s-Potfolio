@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sushant Tiwari - Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom CSS for styling -->
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hero {
+      background: linear-gradient(90deg, rgba(29, 53, 87, 0.9), rgba(20, 100, 160, 0.7)), url('hero-image.jpg') center center no-repeat;
+      background-size: cover;
+      padding: 100px 0;
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+    }
+
+    .btn-primary {
+      padding: 10px 30px;
+      font-size: 1.2em;
+    }
+
+    section {
+      padding: 50px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h1 {
+      font-size: 2.5em;
+      color: #1d3557;
+    }
+
+    .experience-card, .skill-card {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 40px; /* Adjusted spacing between business ideas */
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background: #1d3557;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer .social-links img {
+      width: 30px;
+      margin: 0 10px;
+    }
+
+    /* Animation styling */
+    /* Animation styling */
+.animated-icon {
+    opacity: 0;
+    transform: scale(1.2) translateY(50px); /* Smaller scale */
+    animation: fadeInUp 1s ease-out forwards;
+    position: relative; /* Ensure icon doesn’t overlap the text */
+    font-size: 2.2em; /* Smaller icon size */
+    margin-right: 20px; /* Space between icon and text */
+  }
+  
+  /* Different colors for different icons */
+  .animated-icon-1 {
+    animation-delay: 0.3s;
+    color: #ff6347; /* Tomato */
+  }
+  
+  .animated-icon-2 {
+    animation-delay: 0.6s;
+    color: #32cd32; /* Lime Green */
+  }
+  
+  .animated-icon-3 {
+    animation-delay: 0.9s;
+    color: #1e90ff; /* Dodger Blue */
+  }
+  
+  .animated-icon-4 {
+    animation-delay: 1.2s;
+    color: #ff4500; /* Orange Red */
+  }
+  
+  .animated-icon-5 {
+    animation-delay: 1.5s;
+    color: #9370db; /* Medium Purple */
+  }
+  
+  .animated-icon-6 {
+    animation-delay: 1.8s;
+    color: #ffd700; /* Gold */
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0); /* Smaller scale */
+    }
+  }
+  
+
+    .business-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px; /* Added space between each business idea */
+    }
+
+    .business-item li {
+      margin-left: 20px; /* Added space between the icon and the text */
+    }
+
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <h1>Smart City Project</h1>
+    <p>Safe and Sustainable Use of Technology</p>
+    <a href="#project" class="btn btn-lg btn-primary">Explore Project</a>
+  </div>
+</header>
+
+<section id="project">
+  <div class="container">
+    <div class="section-title">
+      <h1>Project Overview</h1>
+    </div>
+    <div class="card">
+      <h3>1. Problem Statement</h3>
+      <p>
+        <strong>Problem:</strong> In the modern world, the rapid advancement of technology in smart cities raises concerns about privacy, security, fraud prevention, and sustainable tech use. We need to ensure that citizens can enjoy the benefits of smart city infrastructure without compromising safety, data privacy, and environmental sustainability.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>2. Business Ideas</h3>
+      <ol>
+        <li class="business-item">
+          <i class="fas fa-shield-alt animated-icon animated-icon-1"></i>
+          <div>
+            <strong>1:Anti-Fraud Browser Extension</strong>
+            <ul>
+              <li><strong>Description:</strong> Detects phishing websites, fake e-commerce platforms, and suspicious URLs, providing real-time warnings to users.</li>
+              <li><strong>Revenue Model:</strong> Freemium model with premium features.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="business-item">
+          <i class="fas fa-map-marker-alt animated-icon animated-icon-2"></i>
+          <div>
+            <strong>2:Smart Tracker for Personal Belongings</strong>
+            <ul>
+              <li><strong>Description:</strong> Affordable GPS trackers for wallets, bags, and keys with a mobile app for real-time updates.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="business-item">
+          <i class="fas fa-lock animated-icon animated-icon-3"></i>
+          <div>
+            <strong>3:Secure Family Monitoring App</strong>
+            <ul>
+              <li><strong>Description:</strong> Tracks family members' locations, secures shared devices, and provides emergency alerts.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="business-item">
+          <i class="fas fa-bicycle animated-icon animated-icon-4"></i>
+          <div>
+            <strong>4:Smart Bike Tracking System</strong>
+            <ul>
+              <li><strong>Description:</strong> A GPS tracking system for bicycles that can notify the owner if the bike is moved or stolen.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="business-item">
+          <i class="fas fa-solar-panel animated-icon animated-icon-5"></i>
+          <div>
+            <strong>5:Solar-Powered Smart Streetlights</strong>
+            <ul>
+              <li><strong>Description:</strong> Streetlights equipped with solar panels that can adjust brightness based on time of day or traffic.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="business-item">
+          <i class="fas fa-users animated-icon animated-icon-6"></i>
+          <div>
+            <strong>6:Community Engagement App</strong>
+            <ul>
+              <li><strong>Description:</strong> An app that allows citizens to report issues, engage with local government, and stay informed about community events.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+<section id="profiles" class="profiles">
+    <div class="profiles-details">
+      <div class="section-heading text-center">
+        <h2>Profiles</h2>
+      </div>
+      <div class="container">
+        <div class="profiles-content">
+          <div class="row">
+            <div class="col-sm-4 animated-profile" style="animation-delay: 0.2s;">
+              <div class="single-profile">
+                <div class="profile-txt">
+                  <a href="#"><i class="fab fa-themeisle profile-icon"></i></a>
+                  <div class="profile-icon-name">ThemeForest</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 animated-profile" style="animation-delay: 0.4s;">
+              <div class="single-profile">
+                <div class="profile-txt">
+                  <a href="#"><i class="fab fa-dribbble profile-icon"></i></a>
+                  <div class="profile-icon-name">Dribbble</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 animated-profile" style="animation-delay: 0.6s;">
+              <div class="single-profile">
+                <div class="profile-txt">
+                  <a href="#"><i class="fab fa-behance profile-icon"></i></a>
+                  <div class="profile-icon-name">Behance</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 animated-profile" style="animation-delay: 0.8s;">
+              <div class="single-profile">
+                <div class="profile-txt">
+                  <a href="#"><i class="fab fa-github profile-icon"></i></a>
+                  <div class="profile-icon-name">GitHub</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 animated-profile" style="animation-delay: 1s;">
+              <div class="single-profile">
+                <div class="profile-txt">
+                  <a href="#"><i class="fab fa-flickr profile-icon"></i></a>
+                  <div class="profile-icon-name">Flickr</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4 animated-profile" style="animation-delay: 1.2s;">
+              <div class="single-profile">
+                <div class="profile-txt">
+                  <a href="#"><i class="fab fa-bitbucket profile-icon"></i></a>
+                  <div class="profile-icon-name">BitBucket</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  </section>
+  
+<footer>
+  <div class="container">
+    <h3>Connect with Me</h3>
+    <ul class="social-links">
+      <li><a href="#"><img src="icons8-instagram.png"></a></li>
+      <li><a href="#"><img src="icons8-linkedin.png"></a></li>
+      <li><a href="#"><img src="icons8-github.png"></a></li>
+    </ul>
+    <p>&copy; 2024 Sushant Tiwari</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

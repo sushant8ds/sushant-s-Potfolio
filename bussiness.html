@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Tracker for Personal Belongings</title>
+
+  <!-- AOS (Animate On Scroll) Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- Highlight.js for Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background-color: #007bff;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .navbar img {
+      width: 50px;
+      height: auto;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 40px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h1 {
+      font-size: 36px;
+    }
+
+    /* Animated Blocks for Problem Statement, Challenges, and Solutions */
+    .block {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .block:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Animated Logos */
+    .block .icon {
+      font-size: 60px;
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    /* Feature Icons */
+    .feature-card {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card i {
+      font-size: 50px;
+      color: #007bff;
+    }
+
+    .feature-card h3 {
+      font-size: 24px;
+      margin-top: 15px;
+    }
+
+    /* Button Hover Animation */
+    .btn-primary {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.1);
+    }
+
+    /* VS Code Style for Code */
+    .code-editor {
+      position: relative;
+      background-color: #2d2d2d;
+      padding: 20px;
+      border-radius: 10px;
+      color: #f8f8f2;
+      font-size: 16px;
+      overflow: auto;
+      margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      height: 500px;
+      border: 2px solid #333;
+    }
+
+    /* Code Block Styling */
+    pre {
+      margin: 0;
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    /* Interactive Buttons for Code */
+    .run-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+    }
+
+    .run-btn:hover {
+      background-color: #45a049;
+    }
+
+    .run-btn:active {
+      background-color: #3e8e41;
+    }
+
+    .output {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #333;
+      color: #f8f8f2;
+      border-radius: 10px;
+      font-family: monospace;
+    }
+
+    /* Animations for Elements */
+    .feature-card:hover i {
+      transform: rotate(360deg);
+      transition: transform 0.5s ease;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <!-- Navbar with Logo -->
+  <nav class="navbar">
+    <a href="#">
+      <img src="logo.png" alt="Smart Tracker Logo">
+      Smart Tracker Project
+    </a>
+  </nav>
+
+  <!-- Project Overview Section -->
+  <section id="project">
+    <div class="container">
+      <div class="section-title">
+        <h1 data-aos="fade-up">Project Overview</h1>
+      </div>
+
+      <!-- Problem Statement Block -->
+      <div class="block" data-aos="fade-up">
+        <div class="icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h2>1. Problem Statement</h2>
+        <p>A Smart Tracker for Personal Belongings is an app or system that helps users track and monitor their personal items (like keys, wallets, or smartphones) in real-time. The system includes features to:</p>
+        <ul>
+          <li>📍 Track items using tags or unique identifiers.</li>
+          <li>🔔 Notify the user if an item is out of range or lost.</li>
+          <li>⚡ Ensure efficient searching and updating of item statuses.</li>
+        </ul>
+      </div>
+
+      <!-- Challenges Block -->
+      <div class="block" data-aos="fade-up">
+        <div class="icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h2>2. Challenges</h2>
+        <ul>
+          <li>Real-time tracking of items using tags (RFID, GPS, etc.).</li>
+          <li>Efficient search and lookup to identify specific items quickly.</li>
+          <li>Update item status in real time, including lost or found status.</li>
+          <li>Data structure management for tracking multiple items and locations.</li>
+        </ul>
+      </div>
+
+      <!-- Solutions Block -->
+      <div class="block" data-aos="fade-up">
+        <div class="icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2>3. Solutions Using Algorithms and Data Structures</h2>
+        <ul>
+          <li><strong>Tracking Items:</strong> Use a Hash Table for storing and quickly retrieving item details based on unique identifiers (e.g., item ID).</li>
+          <li><strong>Updating Item Status:</strong> Use a Queue to store real-time updates on item statuses (e.g., item found, item lost).</li>
+          <li><strong>Efficient Searching:</strong> Use a Binary Search Tree (BST) or AVL Tree to store and efficiently search for items in the system (based on unique identifiers or other properties).</li>
+          <li><strong>Item Range Monitoring:</strong> Use a Trie to store location-based data (e.g., nearby items or places) for efficient range checking.</li>
+        </ul>
+      </div>
+
+      <!-- Full Code Implementation Block -->
+      <div class="block" data-aos="fade-up">
+        <h2>4. Full Code Implementation (C++)</h2>
+        
+        <!-- Code Editor Block -->
+        <div class="code-editor">
+          <button class="run-btn" onclick="simulateCodeRun()">Run Code</button>
+          <pre><code class="cpp">
+#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
+#include &lt;queue&gt;
+#include &lt;string&gt;
+#include &lt;unordered_set&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+// Item Structure
+struct Item {
+    string name;
+    string status; // "lost", "found", "in range", "out of range"
+    string location;
+};
+
+// Hash Table for storing item details
+class ItemTracker {
+private:
+    unordered_map&lt;string, Item&gt; itemMap;
+
+public:
+    void addItem(string id, string name, string status, string location) {
+        itemMap[id] = {name, status, location};
+    }
+
+    void updateItemStatus(string id, string newStatus) {
+        if (itemMap.find(id) != itemMap.end()) {
+            itemMap[id].status = newStatus;
+        }
+    }
+
+    Item* getItem(string id) {
+        if (itemMap.find(id) != itemMap.end()) {
+            return &itemMap[id];
+        }
+        return nullptr;
+    }
+
+    void printItemDetails(string id) {
+        Item* item = getItem(id);
+        if (item) {
+            cout &lt;&lt; "Item: " &lt;&lt; item-&gt;name &lt;&lt; "\nStatus: " &lt;&lt; item-&gt;status &lt;&lt; "\nLocation: " &lt;&lt; item-&gt;location &lt;&lt; endl;
+        } else {
+            cout &lt;&lt; "Item not found." &lt;&lt; endl;
+        }
+    }
+};
+
+// Queue for real-time updates on item statuses
+class UpdateQueue {
+private:
+    queue&lt;string&gt; updateQueue;
+
+public:
+    void addUpdate(string update) {
+        updateQueue.push(update);
+    }
+
+    void processUpdates() {
+        while (!updateQueue.empty()) {
+            cout &lt;&lt; "UPDATE: " &lt;&lt; updateQueue.front() &lt;&lt; endl;
+            updateQueue.pop();
+        }
+    }
+};
+
+// Binary Search Tree (BST) for efficient searching of items
+class BST {
+private:
+    struct TreeNode {
+        string id;
+        Item item;
+        TreeNode* left;
+        TreeNode* right;
+
+        TreeNode(string id, Item item) : id(id), item(item), left(nullptr), right(nullptr) {}
+    };
+
+    TreeNode* root;
+
+    TreeNode* insert(TreeNode* root, string id, Item item) {
+        if (root == nullptr) {
+            return new TreeNode(id, item);
+        }
+        if (id &lt; root->id) {
+            root->left = insert(root->left, id, item);
+        } else if (id &gt; root->id) {
+            root->right = insert(root->right, id, item);
+        }
+        return root;
+    }
+
+    TreeNode* search(TreeNode* root, string id) {
+        if (root == nullptr || root->id == id) {
+            return root;
+        }
+        if (id &lt; root->id) {
+            return search(root->left, id);
+        }
+        return search(root->right, id);
+    }
+
+public:
+    BST() : root(nullptr) {}
+
+    void insert(string id, Item item) {
+        root = insert(root, id, item);
+    }
+
+    Item* searchItem(string id) {
+        TreeNode* result = search(root, id);
+        if (result) {
+            return &result->item;
+        }
+        return nullptr;
+    }
+};
+
+// Trie for location-based management (tracking nearby items)
+class LocationTrieNode {
+public:
+    unordered_map&lt;char, LocationTrieNode*&gt; children;
+    bool isEndOfLocation;
+    LocationTrieNode() {
+        isEndOfLocation = false;
+    }
+};
+
+class LocationTrie {
+private:
+    LocationTrieNode* root;
+
+public:
+    LocationTrie() {
+        root = new LocationTrieNode();
+    }
+
+    void insert(string location) {
+        LocationTrieNode* currentNode = root;
+        for (char ch : location) {
+            if (currentNode->children.find(ch) == currentNode->children.end()) {
+                currentNode->children[ch] = new LocationTrieNode();
+            }
+            currentNode = currentNode->children[ch];
+        }
+        currentNode->isEndOfLocation = true;
+    }
+
+    bool search(string location) {
+        LocationTrieNode* currentNode = root;
+        for (char ch : location) {
+            if (currentNode->children.find(ch) == currentNode->children.end()) {
+                return false;
+            }
+            currentNode = currentNode->children[ch];
+        }
+        return currentNode->isEndOfLocation;
+    }
+};
+
+// Main function simulating Smart Tracker for Personal Belongings
+int main() {
+    // Initialize components
+    ItemTracker tracker;
+    UpdateQueue updateQueue;
+    BST itemBST;
+    LocationTrie locationTrie;
+
+    // Add items to tracker
+    tracker.addItem("ID001", "Wallet", "found", "Living Room");
+    tracker.addItem("ID002", "Keys", "lost", "Bedroom");
+    tracker.addItem("ID003", "Phone", "in range", "Kitchen");
+
+    // Insert items into BST for searching
+    itemBST.insert("ID001", {"Wallet", "found", "Living Room"});
+    itemBST.insert("ID002", {"Keys", "lost", "Bedroom"});
+    itemBST.insert("ID003", {"Phone", "in range", "Kitchen"});
+
+    // Add some location data to the Trie
+    locationTrie.insert("Living Room");
+    locationTrie.insert("Bedroom");
+
+    // Simulate real-time updates
+    updateQueue.addUpdate("Item ID001 (Wallet) moved to Living Room");
+    updateQueue.addUpdate("Item ID002 (Keys) moved to Bedroom");
+    updateQueue.addUpdate("Item ID003 (Phone) moved to Kitchen");
+
+    // Process real-time updates
+    updateQueue.processUpdates();
+
+    // Print item details
+    tracker.printItemDetails("ID001");
+    tracker.printItemDetails("ID002");
+
+    // Search for an item in the BST
+    Item* foundItem = itemBST.searchItem("ID003");
+    if (foundItem) {
+        cout &lt;&lt; "Item found in BST: " &lt;&lt; foundItem-&gt;name &lt;&lt; " at " &lt;&lt; foundItem-&gt;location &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; "Item not found in BST." &lt;&lt; endl;
+    }
+
+    // Search for a location in the Trie
+    if (locationTrie.search("Living Room")) {
+        cout &lt;&lt; "Location 'Living Room' exists in the Trie." &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; "Location 'Living Room' does not exist in the Trie." &lt;&lt; endl;
+    }
+
+    return 0;
+}
+          </code></pre>
+        </div>
+
+        <!-- Output Block -->
+        <div id="output" class="output"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer style="text-align: center; padding: 20px; background-color: #007bff; color: white;">
+    <p>&copy; 2024 Smart Tracker Project. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init();
+
+    // Simulate Code Execution and Display Output
+    function simulateCodeRun() {
+      document.getElementById('output').innerHTML = 'Simulated Output:\n\nItem ID001 (Wallet) moved to Living Room\nItem ID002 (Keys) moved to Bedroom\nItem ID003 (Phone) moved to Kitchen\nItem: Wallet\nStatus: found\nLocation: Living Room\nItem: Keys\nStatus: lost\nLocation: Bedroom\nItem found in BST: Phone at Kitchen\nLocation "Living Room" exists in the Trie.';
+    }
+  </script>
+
+</body>
+</html>
